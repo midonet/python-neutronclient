@@ -21,7 +21,7 @@ from neutronclient.i18n import _
 
 API_NAME = 'network'
 API_VERSIONS = {
-    '2.0': 'neutronclient.v2_0.client.Client',
+    '2.0': 'neutronclient.neutron.v2_0.midonet.client.MidonetClient',
 }
 
 

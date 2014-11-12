@@ -54,6 +54,7 @@ from neutronclient.neutron.v2_0.lb import member as lb_member
 from neutronclient.neutron.v2_0.lb import pool as lb_pool
 from neutronclient.neutron.v2_0.lb import vip as lb_vip
 from neutronclient.neutron.v2_0 import metering
+from neutronclient.neutron.v2_0.midonet import shell as mido_shell
 from neutronclient.neutron.v2_0.nec import packetfilter
 from neutronclient.neutron.v2_0 import netpartition
 from neutronclient.neutron.v2_0 import network
@@ -299,6 +300,7 @@ COMMAND_V2 = {
 }
 
 COMMANDS = {'2.0': COMMAND_V2}
+COMMANDS['2.0'].update(mido_shell.COMMANDS_MIDONET)
 
 
 class HelpAction(argparse.Action):
