@@ -15,5 +15,6 @@
 from neutronclient.neutron.v2_0.midonet import cluster
 
 COMMANDS_MIDONET = {
-    'cluster-rebuild': cluster.CreateCluster
+    'cluster-flush': cluster.Flush,
+    'cluster-import': cluster.Import
 }

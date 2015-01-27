@@ -13,10 +13,9 @@
 # under the License.
 
 from neutronclient.neutron import v2_0 as neutronV20
-from neutronclient.openstack.common.gettextutils import _
 
 
-class CreateCluster(neutronV20.CreateCommand):
+class Flush(neutronV20.CreateCommand):
 
     resource = 'cluster'
 
@@ -27,4 +26,19 @@ class CreateCluster(neutronV20.CreateCommand):
         body = {'cluster': {}}
         if parsed_args.tenant_id:
             body[self.resource].update({'tenant_id': parsed_args.tenant_id})
+        body[self.resource].update({'op': 'FLUSH'})
+        return body
+
+class Import(neutronV20.CreateCommand):
+
+    resource = 'cluster'
+
+    def add_known_arguments(self, parser):
+       pass
+
+    def args2body(self, parsed_args):
+        body = {'cluster': {}}
+        if parsed_args.tenant_id:
+            body[self.resource].update({'tenant_id': parsed_args.tenant_id})
+        body[self.resource].update({'op': 'IMPORT'})
         return body
