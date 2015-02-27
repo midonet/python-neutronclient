@@ -12,9 +12,14 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
+from neutronclient.neutron.v2_0.midonet import agent_membership
 from neutronclient.neutron.v2_0.midonet import cluster
 
 COMMANDS_MIDONET = {
     'cluster-flush': cluster.Flush,
-    'cluster-import': cluster.Import
+    'cluster-import': cluster.Import,
+    'agent-membership-show': agent_membership.Show,
+    'agent-membership-list': agent_membership.List,
+    'agent-membership-create': agent_membership.Create,
+    'agent-membership-delete': agent_membership.Delete
 }
